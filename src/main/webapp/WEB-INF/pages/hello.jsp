@@ -18,7 +18,7 @@
     <c:remove var="user" scope="request" />
     <c:out value='${user}'>guest</c:out>
 
-    <c:import url="https://github.com/ZmeyXAI/spring-demo-application" />
+    <c:import url="https://github.com/ZmeyXAI/Spring_MVN_demo" />
     
     <%--fmt:formatDate--%>
     <c:set var="now" value="<%=new java.util.Date()%>" />
