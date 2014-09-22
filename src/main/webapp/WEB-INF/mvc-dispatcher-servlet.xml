@@ -1,0 +1,16 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- указывает, какой пакет сканировать на наличие контроллеров.-->
+	<context:component-scan base-package="conspicuum"/>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/> <!-- указывает, что все представления будут лежать в по указанному пути-->
+        <property name="suffix" value=".jsp"/> <!--указывает, что все представления будут иметь расширение .jsp.-->
+    </bean>
+
+</beans>
