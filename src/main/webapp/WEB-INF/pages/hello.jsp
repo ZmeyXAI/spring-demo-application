@@ -1,35 +1,81 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+<!DOCTYPE HTML>
 <html>
 <head>
-    <title>Title</title>
+    <style>
+        body {
+            background-color: #eee;
+            font: helvetica;
+        }
+
+        #container {
+            width: 500px;
+            background-color: #fff;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 5px;
+        }
+
+        .green {
+            font-weight: bold;
+            color: green;
+        }
+
+        .message {
+            margin-bottom: 10px;
+        }
+
+        label {
+            width: 70px;
+            display: inline-block;
+        }
+
+        input {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        form {
+            line-height: 160%;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-	<h1>${message}</h1>
-    
-    <c:set var="myName" value="Alex"/>
-    <h1>${myName}</h1>
 
-    
-    <c:set var="user" >Cowgirl</c:set>
-    <c:out value='${user}' default='guest' />
-    <c:remove var="user" scope="request" />
-    <c:out value='${user}'>guest</c:out>
+<div id="container">
 
-    <c:import url="https://github.com/ZmeyXAI/spring-demo-application" />
-    
-    <%--fmt:formatDate--%>
-    <c:set var="now" value="<%=new java.util.Date()%>" />
-    <p>Formatted Date (1): <fmt:formatDate type="time" value="${now}" /></p>
-    <p>Formatted Date (2): <fmt:formatDate type="date" value="${now}" /></p>
-    <p>Formatted Date (3): <fmt:formatDate type="both" value="${now}" /></p>
-    <p>Formatted Date (4): <fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${now}" /></p>
-    <p>Formatted Date (5): <fmt:formatDate type="both" dateStyle="medium" timeStyle="medium" value="${now}" /></p>
-    <p>Formatted Date (6): <fmt:formatDate type="both" dateStyle="long" timeStyle="long" value="${now}" /></p>
-    <p>Formatted Date (7): <fmt:formatDate pattern="yyyy-MM-dd" value="${now}" /></p>
-    
-    
+    <c:if test="${not empty message}">
+        <div class="message green">${message}</div>
+    </c:if>
+
+    <form:form action="valid" modelAttribute="user">
+        <label for="nameInput">Name: </label>
+        <form:input path="name" id="nameInput"/>
+        <form:errors path="name" cssClass="error"/>
+        <br/>
+
+        
+        <label for="dateInput">Birthday: </label>
+        <form:input path="date" id="dateInput" placeholder="MM/DD/YYYY"/>
+        <form:errors path="date" cssClass="error"/>
+        <br/>
+
+        <br/>
+        <input type="submit" value="Submit"/>
+    </form:form>
+</div>
+
 </body>
 </html>

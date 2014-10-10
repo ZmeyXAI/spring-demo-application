@@ -4,11 +4,6 @@ import org.springframework.context.annotation.*;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.*;
 
-/*@Configuration — собственно эта аннотация и говорит о том, что данный класс является Java Configuration;
-@EnableWebMvc — эта аннотация разрешает нашему проекту использовать MVC;
-@ComponentScan — аналогично тому component-scan который был в mvc-dispatcher-servlet.xml, говорит, где искать компоненты проекта.
-Bean — указывает на то что это инициализация бина, и он будет создан с помощью DI.*/
-
 @Configuration
 @EnableWebMvc
 @ComponentScan("conspicuum.controllers")
