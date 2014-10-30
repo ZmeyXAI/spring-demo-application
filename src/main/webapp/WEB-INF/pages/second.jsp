@@ -6,6 +6,9 @@
 </head>
 <body>
 <p>hello this is secondery pages</p>
+<P>${User_id}</P>
+<P>${User_Login}</P>
+<P>${User_Password}</P>
 
 </body>
 </html>

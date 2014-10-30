@@ -60,21 +60,24 @@
         <div class="message green">${message}</div>
     </c:if>
 
-    <form:form action="valid" modelAttribute="user">
-        <label for="nameInput">Name: </label>
-        <form:input path="name" id="nameInput"/>
-        <form:errors path="name" cssClass="error"/>
+    <form:form action="/second" modelAttribute="user">
+        <label for="loginInput">Login: </label>
+        <form:input path="login" id="loginInput"/>
+        <form:errors path="login" cssClass="error"/>
         <br/>
 
-        
-        <label for="dateInput">Birthday: </label>
-        <form:input path="date" id="dateInput" placeholder="MM/DD/YYYY"/>
-        <form:errors path="date" cssClass="error"/>
+
+        <label for="passwordInput">Password: </label>
+        <form:password path="password" id="passwordInput"/>
+        <form:errors path="password" cssClass="error"/>
         <br/>
 
         <br/>
-        <input type="submit" value="Submit"/>
+        <input type="submit" name="Login" value="Login"/>
+        <input type="reset" name="Reset" value="Reset"/>
+        <input type="submit" name="Registration" value="Registration"/>
     </form:form>
+
 </div>
 
 </body>
