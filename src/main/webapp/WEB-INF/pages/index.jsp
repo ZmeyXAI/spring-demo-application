@@ -60,22 +60,38 @@
         <div class="message green">${message}</div>
     </c:if>
 
-    <form:form action="/second" modelAttribute="user">
-        <label for="loginInput">Login: </label>
-        <form:input path="login" id="loginInput"/>
-        <form:errors path="login" cssClass="error"/>
-        <br/>
+    <form:form  method="post" action="/add" modelAttribute="user">
+                <label for="fistNameInput">Fist name: </label>
+                <form:input path="fistName" id="fistNameInput"/>
+                <form:errors path="fistName" cssClass="error"/>
+                <br/>
+        
+                <label for="lastNameInput">Last name: </label>
+                <form:input path="lastName" id="lastNameInput"/>
+                <form:errors path="lastName" cssClass="error"/>
+                <br/>
+        
+                <label for="patronymicInput">Patronymic: </label>
+                <form:input path="patronymic" id="patronymicInput"/>
+                <form:errors path="patronymic" cssClass="error"/>
+                <br/>
+        
+                <label for="dateInput">Date of birth: </label>
+                <form:input path="date" id="dateInput" placeholder="MM/DD/YYYY"/>
+                <form:errors path="date" cssClass="error"/>
+                <br/>
+        
+                <label for="eMailInput">eMail: </label>
+                <form:input path="eMail" id="eMailInput"/>
+                <form:errors path="eMail" cssClass="error"/>
+                <br/>
+                
+             
 
-
-        <label for="passwordInput">Password: </label>
-        <form:password path="password" id="passwordInput"/>
-        <form:errors path="password" cssClass="error"/>
         <br/>
-
-        <br/>
-        <input type="submit" name="Login" value="Login"/>
+        <input type="submit" name="Next" value="submit"/>
         <input type="reset" name="Reset" value="Reset"/>
-        <input type="submit" name="Registration" value="Registration"/>
+        
     </form:form>
 
 </div>

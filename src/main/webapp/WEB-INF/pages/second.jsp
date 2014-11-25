@@ -6,9 +6,32 @@
 </head>
 <body>
 <p>hello this is secondery pages</p>
-<P>${User_id}</P>
-<P>${User_Login}</P>
-<P>${User_Password}</P>
+
+<table border="1">
+    <caption>Tables</caption>
+    <tr>
+        <th>fistName</th>
+        <th>${user.fistName}</th>
+    </tr>
+    <tr>
+        <th>lastName</th>
+        <th>${user.lastName}</th>
+    </tr>
+    <tr>
+        <th>patronymic</th>
+        <th>${user.patronymic}</th>
+    </tr>
+    <tr>
+        <th>Date of birth</th>
+        <th>${user.Date}</th>
+    </tr>
+    <tr>
+        <th>eMail</th>
+        <th>${user.eMail}</th>
+    </tr>
+
+</table>
+
 
 </body>
 </html>

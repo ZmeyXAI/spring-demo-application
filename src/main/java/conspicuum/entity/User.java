@@ -1,101 +1,102 @@
 package conspicuum.entity;
 
-import org.apache.log4j.Logger;
+import conspicuum.validator.Name;
+import conspicuum.validator.Year;
+import org.hibernate.validator.constraints.*;
 import org.springframework.format.annotation.*;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 import java.util.*;
-import java.util.concurrent.atomic.*;
 
 public class User {
 
-	private static final Logger log = Logger.getLogger(User.class);
-	
-	private static AtomicLong uniqueId = new AtomicLong();
-
-	private long id;
-
+	@Name
 	@NotNull(message = "The name must be specified")
-	@Size(min = 3, max = 20, message = "Size must be between {min} and {max}")
-	@Pattern(regexp = "^[a-zA-Z0-9_-]",
-			message = "The login must contain only lowercase, " +
-					"uppercase letters, digits, and \"_\" and \"-\"")
-	private String login;
+	@Size(min = 3, max = 60, message = "Size must be between {min} and {max}")
+	private String fistName;
 
-	@Pattern(regexp = "^[a-z0-9_-]", message = "not correct password")
-	@Size(min = 3, max = 20, message = "Size must be between {min} and {max}")
-	private String password;
+	@Name
+	@NotNull(message = "The name must be specified")
+	@Size(min = 3, max = 60, message = "Size must be between {min} and {max}")
+	private String lastName;
 
-	@DateTimeFormat(pattern = "MM/dd/yyyy")
+	@Name
+	@Size(min = 3, max = 60, message = "Size must be between {min} and {max}")
+	private String patronymic;
+
+	@DateTimeFormat(pattern = "MM/DD/YYYY")
 	@Past
+	@Year(2000)
 	@NotNull(message = "The Data must be specified")
-	private Date effDate;
+	private Date date;
 
-	@DateTimeFormat(pattern = "MM/dd/yyyy")
-	@Past
-	@Future
-	private Date expDate;
+	@NotNull(message = "The eMail must be specified")
+	@Email(message = "Specified email can not exist")
+	private String eMail;
 
 
 	public User() {
-		setId();
 	}
 
-	public User(long id, String login, String password, Date effDate) {
-		id = uniqueId.getAndIncrement();
-		this.login = login;
-		this.password = password;
-		this.effDate = effDate;
+	public User(String fistName, String lastName, String patronymic, String eMail, Date date) {
+		this.fistName = fistName;
+		this.lastName = lastName;
+		this.patronymic = patronymic;
+		this.eMail = eMail;
+		this.date = date;
 	}
 
-	public long getId() {
-		return id;
+	public String getFistName() {
+		return fistName;
 	}
 
-	public void setId() {
-		this.id = uniqueId.getAndIncrement();
+	public void setFistName(String fistName) {
+		this.fistName = fistName;
 	}
 
-	public String getLogin() {
-		return login;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getPatronymic() {
+		return patronymic;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPatronymic(String patronymic) {
+		this.patronymic = patronymic;
 	}
 
-	public Date getEffDate() {
-		return effDate;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setEffDate(Date effDate) {
-		this.effDate = effDate;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
-	public Date getExpDate() {
-		return expDate;
+	public String geteMail() {
+		return eMail;
 	}
 
-	public void setExpDate(Date expDate) {
-		this.expDate = expDate;
+	public void seteMail(String eMail) {
+		this.eMail = eMail;
 	}
 
 	@Override
 	public String toString() {
 		return "User{" +
-				"id=" + id +
-				", login='" + login + '\'' +
-				", password='" + password + '\'' +
-				", effDate=" + effDate +
-				", expDate=" + expDate +
+				"fistName='" + fistName + '\'' +
+				", lastName='" + lastName + '\'' +
+				", patronymic='" + patronymic + '\'' +
+				", date=" + date +
+				", eMail='" + eMail + '\'' +
 				'}';
 	}
 }
+	
