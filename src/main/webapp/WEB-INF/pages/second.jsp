@@ -23,7 +23,7 @@
     </tr>
     <tr>
         <th>Date of birth</th>
-        <th>${user.Date}</th>
+        <th>${user.date}</th>
     </tr>
     <tr>
         <th>eMail</th>

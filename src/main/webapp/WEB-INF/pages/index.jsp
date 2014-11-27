@@ -60,7 +60,7 @@
         <div class="message green">${message}</div>
     </c:if>
 
-    <form:form  method="post" action="/add" modelAttribute="user">
+    <form:form  method="post" action="/Spring_MVN_demo/index" modelAttribute="user">
                 <label for="fistNameInput">Fist name: </label>
                 <form:input path="fistName" id="fistNameInput"/>
                 <form:errors path="fistName" cssClass="error"/>

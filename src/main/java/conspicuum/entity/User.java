@@ -26,14 +26,14 @@ public class User {
 	@Size(min = 3, max = 60, message = "Size must be between {min} and {max}")
 	private String patronymic;
 
-	@DateTimeFormat(pattern = "MM/DD/YYYY")
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
 	@Past
 	@Year(2000)
-	@NotNull(message = "The Data must be specified")
+	@NotNull(message = "The Date must be specified")
 	private Date date;
 
 	@NotNull(message = "The eMail must be specified")
-	@Email(message = "Specified email can not exist")
+	@Email(message = "invalid e-mai")
 	private String eMail;
 
 

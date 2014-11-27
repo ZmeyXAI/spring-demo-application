@@ -5,7 +5,6 @@ import org.springframework.stereotype.*;
 import org.springframework.ui.*;
 import org.springframework.validation.*;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.*;
 
 import javax.validation.Valid;
 
@@ -21,18 +20,20 @@ public class MainController {
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String userForm(Model m) {
 		m.addAttribute("user", new User());
-		return "redirect:/index";
+		return "index";
 	}
 
-	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String userFormValid(@Valid User user, BindingResult result, RedirectAttributes redirectAttributes) {
+	@RequestMapping(value = "/index", method = RequestMethod.POST)
+	public String userFormValid(@Valid User user, BindingResult result, Model m/*, RedirectAttributes redirectAttributes*/) {
 		if (result.hasErrors()) {
-			return "redirect:/index";
+			return "index";
 		}
-		redirectAttributes.addAttribute("User", user);
-		return "redirect:/second";
+		m.addAttribute("user", user);
+		return "second";
+//		redirectAttributes.addAttribute("User", user);
+//		return "redirect:/second";
 
 	}
-
-
 }
+
+

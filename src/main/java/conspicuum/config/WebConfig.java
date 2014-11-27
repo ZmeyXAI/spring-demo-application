@@ -1,6 +1,8 @@
 package conspicuum.config;
 
+import org.springframework.context.*;
 import org.springframework.context.annotation.*;
+import org.springframework.context.support.*;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.*;
 
@@ -23,5 +25,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
         return resolver;
     }
-
+	@Bean
+	    public MessageSource messageSource() {
+	        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+	        messageSource.setBasename("messages");
+	        return messageSource;
+	    }
 }
